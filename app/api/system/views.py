@@ -81,7 +81,6 @@ async def delete_team(*, session: Session = Depends(db_session), team_id: int):
     with Session(async_engine) as session:
         db_team = await session.get(Team, team_id)
         
-        
         if not db_team:
             raise HTTPException(status_code=404, detail="Team Not Found")
         
