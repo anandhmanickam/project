@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Session, select
 from typing import List
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from db.models.models import Team
 from api.system.schemas import TeamCreate, TeamRead, TeamUpdate
 from db.db import async_engine, db_session
@@ -13,8 +13,7 @@ def create_db_and_tables():
     
         
         
-        
-router = FastAPI()
+router = APIRouter()
 
 
 @router.on_event('startup')
