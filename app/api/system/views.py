@@ -16,9 +16,14 @@ def create_db_and_tables():
 router = APIRouter()
 
 
-@router.on_event('startup')
-def on_startup():
-    create_db_and_tables()
+# @router.on_event('startup')
+# def on_startup():
+#     create_db_and_tables()
+    
+@router.on_event("startup")
+async def init_tables():
+    async with async_engine.begin() as conn:
+        await conn.run_sync(create_db_and_tables())
     
     
 @router.post("/teams/", response_model=TeamRead)

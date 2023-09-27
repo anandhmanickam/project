@@ -20,9 +20,9 @@ class Settings(BaseSettings):
     # Database settings
     DB_HOST: str = "127.0.0.1"
     DB_PORT: int = 3306
-    DB_USER: str = "test4"
-    DB_PASS: str = "root"
-    _DB_BASE: str = "test4"
+    DB_USER: str = "test5"
+    DB_PASS: str = "M/lwbF(qHZN(VHe9"
+    _DB_BASE: str = "test5"
     DB_ECHO: bool = False
 
     @property
@@ -50,7 +50,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = f"{BASE_DIR}/.env"
         env_file_encoding = "utf-8"
-        fields = {
+        fields = { 
             "_BASE_URL": {
                 "env": "BASE_URL",
             },
